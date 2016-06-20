@@ -94,25 +94,5 @@ namespace ElementsOfProgrammerInterviewsCSharp
         }
 
         #endregion
-
-        #region _12_EnumerateAllPrimesToN
-
-        public static List<int> _12_EnumerateAllPrimesToN(int n)
-        {
-            int[] arr = Enumerable.Range(2, n).ToArray();
-            for (int i = 0; i < arr.Length; i++)
-            {
-                if (arr[i] != 0)
-                {
-                    for (int j = i + arr[i]; j < arr.Length; j += arr[i])
-                    {
-                        arr[j] = 0;
-                    }
-                }
-            }
-            return arr.Where(i => i != 0).ToList();
-        }
-
-        #endregion
     }
 }
