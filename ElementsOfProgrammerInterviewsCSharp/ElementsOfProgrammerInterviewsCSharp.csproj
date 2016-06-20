@@ -50,6 +50,7 @@
     <Compile Include="Chapter06.cs" />
     <Compile Include="Chapter08.cs" />
     <Compile Include="Chapter09.cs" />
+    <Compile Include="Chapter10.cs" />
     <Compile Include="MiscListPermutations.cs" />
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
