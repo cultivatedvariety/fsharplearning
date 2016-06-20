@@ -91,8 +91,8 @@ namespace ElementsOfProgrammerInterviewsCSharp
 
         public class QueueWithStacks
         {
-            private Stack<int> _enqueue = new Stack<int>(100);
-            private Stack<int> _dequeue = new Stack<int>(100);
+            private readonly Stack<int> _enqueue = new Stack<int>(100);
+            private readonly Stack<int> _dequeue = new Stack<int>(100);
 
             public void Enqueue(int value)
             {
@@ -108,6 +108,8 @@ namespace ElementsOfProgrammerInterviewsCSharp
                         _dequeue.Push(_enqueue.Pop());
                     }
                 }
+
+                return _dequeue.Count > 0 ? _dequeue.Pop() : int.MinValue;
             }
         }
 
@@ -133,6 +135,30 @@ namespace ElementsOfProgrammerInterviewsCSharp
             Assert.IsFalse(Chapter09.IsWellFormed(string.Empty));
             Assert.IsFalse(Chapter09.IsWellFormed("{}()["));
             Assert.IsFalse(Chapter09.IsWellFormed("{}()[]]"));
+        }
+
+        #endregion
+
+        #region 12 Implement a queue with stacks
+
+        [Test]
+        public static void When_Enqueued_Then_DequeuedInFIFO()
+        {
+            Chapter09.QueueWithStacks queue = new Chapter09.QueueWithStacks();
+            queue.Enqueue(0);
+            queue.Enqueue(1);
+            queue.Enqueue(2);
+
+            Assert.AreEqual(0, queue.Dequeue());            
+            Assert.AreEqual(1, queue.Dequeue());            
+            Assert.AreEqual(2, queue.Dequeue());            
+        }
+
+        [Test]
+        public void When_QueueIsEmpty_Then_DequeueReturnsInMin()
+        {
+            Chapter09.QueueWithStacks queue = new Chapter09.QueueWithStacks();
+            Assert.AreEqual(int.MinValue, queue.Dequeue());
         }
 
         #endregion

@@ -10,9 +10,6 @@ namespace ElementsOfProgrammerInterviewsCSharp
     {
         static void Main(string[] args)
         {
-            var primes = Chapter06._12_EnumerateAllPrimesToN(100);
-            Console.WriteLine(string.Join(",", primes));
-            Console.ReadLine();
         }
 
     }
